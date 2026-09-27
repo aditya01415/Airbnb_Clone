@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-md bg-white border-bottom sticky-top shadow-sm px-3">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center me-4" href="/listings">
+      <i class="fa-regular fa-compass me-2 brand-logo-icon"></i>
+      <span class="fw-bold brand-title">Wanderlust</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav me-auto align-items-center">
+        <a class="nav-link px-3 fw-medium" href="/listings">Explore All</a>
+        <a class="nav-link px-3 fw-medium" href="/listings/new">Airbnb Your Home</a>
+      </div>
+
+      <!-- Search Bar -->
+      <form class="d-flex mx-auto search-form my-2 my-md-0" role="search" action="/listings" method="GET">
+        <div class="input-group search-input-group">
+          <input class="form-control search-input" type="search" name="search" placeholder="Search destinations, titles..." aria-label="Search" value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>">
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass me-1"></i> Search
+          </button>
+        </div>
+      </form>
+
+      <div class="navbar-nav ms-auto align-items-center">
+        <% if (!currentUser) { %>
+          <a class="nav-link fw-semibold text-dark px-3" href="/signup">Sign Up</a>
+          <a class="btn btn-outline-danger btn-sm rounded-pill px-3 ms-2 fw-semibold" href="/login">Log In</a>
+        <% } else { %>
+          <div class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center border rounded-pill px-3 py-1 shadow-sm user-dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bars me-2 text-muted"></i>
+              <div class="user-avatar bg-danger text-white rounded-circle d-flex align-items-center justify-content-center" style="width:28px; height:28px; font-size:13px;">
+                <%= currentUser.username.charAt(0).toUpperCase() %>
+              </div>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2 rounded-3" aria-labelledby="navbarDropdown">
+              <li class="dropdown-header fw-bold text-dark fs-6">Hello, <%= currentUser.username %>!</li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/listings/new"><i class="fa-solid fa-plus me-2 text-muted"></i> Add New Listing</a></li>
+              <li><a class="dropdown-item" href="/listings"><i class="fa-solid fa-compass me-2 text-muted"></i> Explore Listings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger fw-semibold" href="/logout"><i class="fa-solid fa-right-from-bracket me-2"></i> Log Out</a></li>
+            </ul>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

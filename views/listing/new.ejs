@@ -1,0 +1,78 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-4 justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+      <h3 class="fw-bold mb-3 text-dark">Create a New Listing</h3>
+      <p class="text-muted fs-7 mb-4">Share your space with travelers around the world.</p>
+
+      <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="title" class="form-label fw-semibold">Title</label>
+          <input type="text" class="form-control rounded-3" name="listing[title]" id="title" placeholder="e.g. Cozy Beachfront Villa" required>
+          <div class="invalid-feedback">Please enter a title for your listing.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label fw-semibold">Description</label>
+          <textarea name="listing[description]" id="description" rows="4" class="form-control rounded-3" placeholder="Describe what makes your property special..." required></textarea>
+          <div class="invalid-feedback">Please provide a short description.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="category" class="form-label fw-semibold">Category</label>
+          <select name="listing[category]" id="category" class="form-select rounded-3">
+            <option value="trending" selected>Trending</option>
+            <option value="rooms">Rooms</option>
+            <option value="cities">Iconic Cities</option>
+            <option value="mountains">Mountains</option>
+            <option value="castles">Castles</option>
+            <option value="pools">Amazing Pools</option>
+            <option value="camping">Camping</option>
+            <option value="farms">Farms</option>
+            <option value="arctic">Arctic</option>
+            <option value="boats">Boats</option>
+            <option value="domes">Domes</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="imageFile" class="form-label fw-semibold">Upload Listing Image</label>
+          <input type="file" name="image" id="imageFile" class="form-control rounded-3">
+          <div class="form-text">Choose an image file from your device (JPG, PNG).</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label fw-semibold">Or Image URL</label>
+          <input type="url" name="listing[image]" id="imageUrl" class="form-control rounded-3" placeholder="https://images.unsplash.com/...">
+          <div class="form-text">Direct image link if not uploading a file.</div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-5">
+            <label for="price" class="form-label fw-semibold">Price (&#8377; / night)</label>
+            <input type="number" name="listing[price]" id="price" class="form-control rounded-3" placeholder="1200" min="0" required>
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="mb-3 col-md-7">
+            <label for="country" class="form-label fw-semibold">Country</label>
+            <input type="text" name="listing[country]" id="country" class="form-control rounded-3" placeholder="e.g. India" required>
+            <div class="invalid-feedback">Please enter a country.</div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="location" class="form-label fw-semibold">Location / City</label>
+          <input type="text" name="listing[location]" id="location" class="form-control rounded-3" placeholder="e.g. Goa, Mumbai, New York" required>
+          <div class="invalid-feedback">Please enter a location.</div>
+        </div>
+
+        <button class="btn btn-danger rounded-pill w-100 py-2 fw-semibold shadow-sm">
+          <i class="fa-solid fa-plus me-1"></i> Add Listing
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+

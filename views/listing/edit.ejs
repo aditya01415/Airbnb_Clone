@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-4 justify-content-center">
+  <div class="col-12 col-md-8 col-lg-6">
+    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+      <h3 class="fw-bold mb-3 text-dark">Edit Listing</h3>
+
+      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="title" class="form-label fw-semibold">Title</label>
+          <input type="text" class="form-control rounded-3" name="listing[title]" id="title" value="<%= listing.title %>" required>
+          <div class="invalid-feedback">Please enter a title.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label fw-semibold">Description</label>
+          <textarea name="listing[description]" id="description" rows="4" class="form-control rounded-3" required><%= listing.description %></textarea>
+          <div class="invalid-feedback">Please enter a description.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="category" class="form-label fw-semibold">Category</label>
+          <select name="listing[category]" id="category" class="form-select rounded-3">
+            <option value="trending" <%= listing.category === 'trending' ? 'selected' : '' %>>Trending</option>
+            <option value="rooms" <%= listing.category === 'rooms' ? 'selected' : '' %>>Rooms</option>
+            <option value="cities" <%= listing.category === 'cities' ? 'selected' : '' %>>Iconic Cities</option>
+            <option value="mountains" <%= listing.category === 'mountains' ? 'selected' : '' %>>Mountains</option>
+            <option value="castles" <%= listing.category === 'castles' ? 'selected' : '' %>>Castles</option>
+            <option value="pools" <%= listing.category === 'pools' ? 'selected' : '' %>>Amazing Pools</option>
+            <option value="camping" <%= listing.category === 'camping' ? 'selected' : '' %>>Camping</option>
+            <option value="farms" <%= listing.category === 'farms' ? 'selected' : '' %>>Farms</option>
+            <option value="arctic" <%= listing.category === 'arctic' ? 'selected' : '' %>>Arctic</option>
+            <option value="boats" <%= listing.category === 'boats' ? 'selected' : '' %>>Boats</option>
+            <option value="domes" <%= listing.category === 'domes' ? 'selected' : '' %>>Domes</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Current Listing Image</label>
+          <div class="mb-2">
+            <img src="<%= originalImageUrl %>" class="img-thumbnail rounded-3 shadow-sm" style="height: 180px; width: auto; object-fit: cover;" alt="Current listing image">
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="imageFile" class="form-label fw-semibold">Upload New Image</label>
+          <input type="file" name="image" id="imageFile" class="form-control rounded-3">
+          <div class="form-text">Choose a new image file to replace the current one.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label fw-semibold">Or New Image URL</label>
+          <input type="url" name="listing[image]" id="imageUrl" class="form-control rounded-3" value="<%= listing.image?.url || listing.image %>">
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-5">
+            <label for="price" class="form-label fw-semibold">Price (&#8377; / night)</label>
+            <input type="number" name="listing[price]" id="price" class="form-control rounded-3" value="<%= listing.price %>" min="0" required>
+            <div class="invalid-feedback">Please enter a valid price.</div>
+          </div>
+
+          <div class="mb-3 col-md-7">
+            <label for="country" class="form-label fw-semibold">Country</label>
+            <input type="text" name="listing[country]" id="country" class="form-control rounded-3" value="<%= listing.country %>" required>
+            <div class="invalid-feedback">Please enter a country.</div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="location" class="form-label fw-semibold">Location / City</label>
+          <input type="text" name="listing[location]" id="location" class="form-control rounded-3" value="<%= listing.location %>" required>
+          <div class="invalid-feedback">Please enter a location.</div>
+        </div>
+
+        <button type="submit" class="btn btn-dark rounded-pill w-100 py-2 fw-semibold shadow-sm">
+          <i class="fa-solid fa-check me-1"></i> Save Changes
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

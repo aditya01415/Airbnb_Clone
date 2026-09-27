@@ -1,0 +1,187 @@
+body {
+    font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-container {
+    flex: 1;
+}
+
+/* Typography & Helpers */
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+/* Navbar & Brand */
+.navbar {
+    min-height: 4.5rem;
+}
+
+.brand-logo-icon {
+    color: #fe424d;
+    font-size: 1.8rem;
+}
+
+.brand-title {
+    color: #fe424d;
+    font-size: 1.35rem;
+    letter-spacing: -0.5px;
+}
+
+/* Search Bar */
+.search-input-group {
+    border: 1px solid #ddd;
+    border-radius: 50rem;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.search-input-group:focus-within {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    border-color: #ccc;
+}
+
+.search-input {
+    border: none !important;
+    box-shadow: none !important;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+}
+
+.search-btn {
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    font-weight: 500;
+    font-size: 0.88rem;
+    border-radius: 50rem !important;
+    margin: 3px;
+}
+
+.search-btn:hover {
+    background-color: #e0303b !important;
+}
+
+/* Category Filters */
+.filter-container {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.filter-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.filter-item {
+    color: #717171;
+    opacity: 0.75;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid transparent;
+}
+
+.filter-item i {
+    font-size: 1.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.filter-item:hover,
+.filter-active {
+    opacity: 1;
+    color: #000;
+    border-bottom-color: #000;
+}
+
+/* Tax Toggle Switch */
+.tax-toggle {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Listing Cards */
+.listing-link {
+    display: block;
+}
+
+.listing-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background-color: #fff;
+}
+
+.listing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.listing-card:hover .listing-img {
+    transform: scale(1.04);
+}
+
+.listing-img {
+    transition: transform 0.4s ease;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #f1f1f1;
+    border-top: 1px solid #e2e2e2;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+.f-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.f-info-socials i {
+    font-size: 1.3rem;
+    margin: 0 0.5rem;
+    color: #484848;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.f-info-socials i:hover {
+    color: #fe424d;
+}
+
+.f-info-brand {
+    font-size: 0.85rem;
+    color: #6a6a6a;
+}
+
+.f-info-links a {
+    color: #484848;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin: 0 0.5rem;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+    color: #fe424d;
+}
+
+/* Leaflet Custom Marker */
+.custom-map-marker {
+    background: none;
+    border: none;
+}
