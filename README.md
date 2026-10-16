@@ -93,17 +93,17 @@ Ensure you have the following installed on your machine:
    ```
 
 3. **Configure Environment Variables:**
-   Copy the sample environment file and create `.env`:
+   Create a `.env` file from the provided `.envSample` template:
    ```bash
    cp .envSample .env
    ```
-   Open `.env` and fill in your credentials:
+   Fill in your own credentials in `.env`:
    ```env
-   CLOUD_NAME=your_cloudinary_cloud_name
-   CLOUD_API_KEY=your_cloudinary_api_key
-   CLOUD_API_SECRET=your_cloudinary_api_secret
-   ATLASDB_URL=mongodb+srv://<username>:<password>@cluster.mongodb.net/wanderlust
-   SECRET=your_session_secret_key
+   CLOUD_NAME=
+   CLOUD_API_KEY=
+   CLOUD_API_SECRET=
+   ATLASDB_URL=
+   SECRET=
    PORT=8080
    ```
 
@@ -127,16 +127,18 @@ Ensure you have the following installed on your machine:
 
 ---
 
-## 🔑 Environment Variables Reference
+## 🔑 Environment Variables
 
-| Variable | Description | Example / Default |
-| :--- | :--- | :--- |
-| `CLOUD_NAME` | Cloudinary account cloud name | `your_cloud_name` |
-| `CLOUD_API_KEY` | Cloudinary API Key | `123456789012345` |
-| `CLOUD_API_SECRET` | Cloudinary API Secret | `abcdef123456...` |
-| `ATLASDB_URL` | MongoDB connection URI | `mongodb://127.0.0.1:27017/wanderlust` |
-| `SECRET` | Express session encryption secret | `mysupersecretcode` |
-| `PORT` | Port number the server binds to | `8080` |
+Refer to `.envSample` for the required configuration variables:
+
+| Variable | Description |
+| :--- | :--- |
+| `CLOUD_NAME` | Cloudinary cloud name |
+| `CLOUD_API_KEY` | Cloudinary API Key |
+| `CLOUD_API_SECRET` | Cloudinary API Secret |
+| `ATLASDB_URL` | MongoDB connection URI (MongoDB Atlas or local instance) |
+| `SECRET` | Session encryption secret key |
+| `PORT` | Application server port (default: `8080`) |
 
 ---
 
