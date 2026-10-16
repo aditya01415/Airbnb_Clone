@@ -35,13 +35,13 @@ module.exports.signup = async (req, res) => {
         if (err) {
             console.error(err);
             req.flash('error', 'Error logging in after signup. Please try logging in manually.');
-            return res.redirect('/users/login');
+            return res.redirect('/login');
         }
         req.flash('success', 'Welcome to Wanderlust!');
         return res.redirect('/listings');
     });
    } catch (err) {
     req.flash('error', err.message);
-    res.redirect('/users/signup');
+    res.redirect('/signup');
    }
 }
